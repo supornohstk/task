@@ -36,7 +36,9 @@ mod Integrations {
     }
 
     #[constructor]
-    fn constructor( ref self: ContractState, mySwapAddress: ContractAddress, zkLendAddress: ContractAddress) {
+    fn constructor( ref self: ContractState, mySwapAddress: ContractAddress, zkLendAddress: ContractAddress, usdcAddress: ContractAddress, usdtAddress: ContractAddress) {
+        self.usdcAddress.write(usdcAddress);
+        self.usdtAddress.write(usdtAddress);
         self.initializer(zkLendAddress, mySwapAddress);
     }
 
